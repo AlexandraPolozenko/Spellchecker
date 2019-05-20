@@ -1,4 +1,16 @@
 class Spellchecker(private val dictionary: HashSet<String>) {
+  fun runSpellchecker() {
+    val w = readLine()!!
+
+    if (dictionary.contains(w)) {
+      println("Written correctly")
+    } else {
+      println("Possible variants:")
+
+      getSuitableWords(w).forEach { i -> println(i) }
+    }
+  }
+
   fun getSuitableWords(w: String): ArrayList<String> {
     val variants = addLetter(w)
     variants.addAll(removeLetter(w))

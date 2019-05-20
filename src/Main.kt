@@ -7,4 +7,6 @@ fun main(args: Array<String>) {
   println(spellchecker.getSuitableWords("meduim"))
   println(spellchecker.getSuitableWords("stok"))
   println(spellchecker.getSuitableWords("agake"))
+
+  spellchecker.runSpellchecker()
 }
