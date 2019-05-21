@@ -3,6 +3,9 @@ package main
 import java.util.*
 
 class Spellchecker(private val dictionary: HashSet<String>) {
+  /*
+    read word to check from console
+   */
   fun runSpellchecker() {
     val w = readLine()!!
 
@@ -15,6 +18,9 @@ class Spellchecker(private val dictionary: HashSet<String>) {
     }
   }
 
+  /*
+    run spellchecker
+   */
   fun getSuitableWords(w: String): ArrayList<String> {
     if (dictionary.contains(w)) {
       return arrayListOf()
