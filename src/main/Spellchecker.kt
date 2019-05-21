@@ -7,7 +7,7 @@ class Spellchecker(private val dictionary: HashSet<String>) {
     read word to check from console
    */
   fun runSpellchecker() {
-    val w = readLine()!!
+    val w = readLine()!!.toLowerCase()
 
     if (dictionary.contains(w)) {
       println("Written correctly")
@@ -22,14 +22,16 @@ class Spellchecker(private val dictionary: HashSet<String>) {
     run spellchecker
    */
   fun getSuitableWords(w: String): ArrayList<String> {
-    if (dictionary.contains(w)) {
+    val wrd = w.toLowerCase()
+
+    if (dictionary.contains(wrd)) {
       return arrayListOf()
     }
 
-    val variants = addLetter(w)
-    variants.addAll(removeLetter(w))
-    variants.addAll(substituteLetter(w))
-    variants.addAll(switchLetters(w))
+    val variants = addLetter(wrd)
+    variants.addAll(removeLetter(wrd))
+    variants.addAll(substituteLetter(wrd))
+    variants.addAll(switchLetters(wrd))
 
     val res = arrayListOf<String>()
     variants.forEach { i -> if (dictionary.contains(i)) res.add(i)}
